@@ -27,46 +27,39 @@ public class Task1 {
         System.out.println("Введи возраст");
         do
         {
-            try {
+            try { //  Убеждаемся что в пользовательском вводе введен int а не что-то другое
                 String s = in.nextLine();
-
-                int midterm = Integer.parseInt(s) ; //  Убеждаемся что в пользовательском вводе введен int а не что-то другое
-                String sYears = "";
-                if (midterm > 0 & midterm < 101) { //проверяем что возраст - положительное число и в рамках реальности
-                    if (midterm == 1) {
-                        sYears = "вам " + (midterm) + " год";
-                    }
-                    else if(midterm == 0 || midterm >= 5 && midterm <= 9) {
-                        sYears = "вам " + (midterm) + " лет";
-                    }
-                    else if(midterm >= 2 && midterm <= 4) {
-                        sYears = "вам " + (midterm) + " года";
-                    }
-                    else
-                        sYears = "вам " + (midterm) + " лет";
-
-
-
-
-                    System.out.println(sYears );
-
-                    // break;
-
+                String sYears; //итоговая строка
+                int midterm = Integer.parseInt(s) ;
+                if (midterm % 100 >= 11 && midterm % 100 <= 14) {
+                    sYears = "вам " + (midterm) + " лет";
 
                 }
                 else {
-                    System.out.println("Столько не живут, бро");
+                    int ageLastNumber = midterm % 10;
+                    if (ageLastNumber == 1) {
+                            sYears = "вам " + (midterm) + " год";
+                        }
+                        else if(ageLastNumber == 0 || ageLastNumber >= 5 && ageLastNumber <= 9) {
+                                sYears = "вам " + (midterm) + " лет";
+                            }
+                        else if(ageLastNumber >= 2 && ageLastNumber <= 4) {
+                                sYears = "вам " + (midterm) + " года";
+                            }
+
+                        else sYears = "вам " + (midterm) + " лет";
+
 
                 }
+                System.out.println(sYears);
+
             }
-
-
             catch (Exception e)
-            {
-                System.out.println("Чет тут не то");
-            }
+                {
+                    System.out.println("Некорректный ввод");
+                }
         }
-        while (true);
+        while (true); // итоговое поведение не формализовано - так что бесконечно опрашиваем возраст
 
 
 
