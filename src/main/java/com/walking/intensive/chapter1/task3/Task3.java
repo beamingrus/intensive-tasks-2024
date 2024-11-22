@@ -34,7 +34,8 @@ public class Task3 {
             return true;
         } else if (year % 400 == 0) {
             return true;
-        } else
+        } else {
             return false;
+        }
     }
 }
