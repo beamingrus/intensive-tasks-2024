@@ -56,6 +56,7 @@ public class Task2 {
             flatCalcResult = "Некорректные входные данные";
         }
 
+
         switch(flatLocation){
             case (0): flatCalcResult = flatNumber + " кв - " + exactEntranceCalc + " подъезд, " + exactFloorCount + " этаж, " + flatOptions[3]; break;
             case (1): flatCalcResult = flatNumber + " кв - " + exactEntranceCalc + " подъезд, " + exactFloorCount + " этаж, " + flatOptions[0]; break;
