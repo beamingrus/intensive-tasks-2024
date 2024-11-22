@@ -34,10 +34,8 @@ package com.walking.intensive.chapter1.task2;
 public class Task2 {
     public static void main(String[] args) {
 //        Для собственных проверок можете делать любые изменения в этом методе
-        getFlatLocation(10, 3, 4);
-
+        getFlatLocation(10,3,121);
     }
-
     static String getFlatLocation(int floorAmount, int entranceAmount, int flatNumber) {
         String flatCalcResult = "empty"; // итоговая строка
         String[] flatOptions = {"слева от лифта, влево", "слева от лифта, вправо", "справа от лифта, влево", "справа от лифта, вправо"};
@@ -49,23 +47,21 @@ public class Task2 {
         int exactFloorCount = javaFlatNumber % entranceCapacity / 4 + 1 ; // считаем этаж
         int flatLocation = flatNumber % 4; // считаем направление квартиры
 
-        while (flatNumber > wholeHouseCapacity) {
+        if (flatNumber > wholeHouseCapacity) {
             flatCalcResult = "Такой квартиры не существует";
+
         }
-        while (flatNumber < 1) {
+        else if (flatNumber <= 0 ) {
             flatCalcResult = "Некорректные входные данные";
-        }
-
-
-        switch(flatLocation){
-            case (0): flatCalcResult = flatNumber + " кв - " + exactEntranceCalc + " подъезд, " + exactFloorCount + " этаж, " + flatOptions[3]; break;
-            case (1): flatCalcResult = flatNumber + " кв - " + exactEntranceCalc + " подъезд, " + exactFloorCount + " этаж, " + flatOptions[0]; break;
-            case (2): flatCalcResult = flatNumber + " кв - " + exactEntranceCalc + " подъезд, " + exactFloorCount + " этаж, " + flatOptions[1]; break;
-            case (3): flatCalcResult = flatNumber + " кв - " + exactEntranceCalc + " подъезд, " + exactFloorCount + " этаж, " + flatOptions[2]; break;
 
         }
-
-        System.out.println(flatCalcResult);
+        else
+            switch(flatLocation){
+                case (0): flatCalcResult = flatNumber + " кв - " + exactEntranceCalc + " подъезд, " + exactFloorCount + " этаж, " + flatOptions[3]; break;
+                case (1): flatCalcResult = flatNumber + " кв - " + exactEntranceCalc + " подъезд, " + exactFloorCount + " этаж, " + flatOptions[0]; break;
+                case (2): flatCalcResult = flatNumber + " кв - " + exactEntranceCalc + " подъезд, " + exactFloorCount + " этаж, " + flatOptions[1]; break;
+                case (3): flatCalcResult = flatNumber + " кв - " + exactEntranceCalc + " подъезд, " + exactFloorCount + " этаж, " + flatOptions[2]; break;
+            }
 
         return flatCalcResult;
     }
